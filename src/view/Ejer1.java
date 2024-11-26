@@ -2,6 +2,8 @@ package view;
 
 import Model.GatoSimple;
 
+import Utils.Menus;
+
 import java.util.Scanner;
 
 /*Ejercicio 1
@@ -14,9 +16,37 @@ public class Ejer1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        int respuesta;
+        char peleamos = 'N';
 
         GatoSimple gato1 = new GatoSimple();
-        GatoSimple gato2 = new GatoSimple();
+
+        System.out.print("¿Como se llama tu gato? ");
+        gato1.setNombreGato(sc.nextLine());
+
+        System.out.print("¿De que color es tu gato? ");
+        gato1.setColor(sc.nextLine());
+
+        gato1.setRaza();
+
+        gato1.setSexo();
+
+        System.out.print("¿Cuantos años tiene tu gato? ");
+        gato1.setEdad(Integer.parseInt(sc.nextLine()));
+
+        System.out.print("¿Cuantos Kilos pesa tu gato? ");
+        System.out.print(gato1.setPeso(Double.parseDouble(sc.nextLine()))
+                        ? "Peso introducido"
+                        : "Datos incorrectos");
+
+        System.out.println();
+
+        Menus.MenuComida(gato1);
+
+        Menus.MenuGatos(gato1);
+
+
+
 
     }
 }
